@@ -1,0 +1,57 @@
+.mainContainer {
+    background-color: #312f47;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradientCover1 {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    background-color: #00478aa1;
+    filter: blur(150px);
+    z-index: -1;
+}
+
+.gradientCover2 {
+    position: absolute;
+    bottom: -350px;
+    right: 50%;
+    left: 50%;
+    width: 40rem;
+    height: 40rem;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: #363b33a1;
+    filter: blur(150px);
+    z-index: -1;
+}
+
+.gradientCover3 {
+    position: absolute;
+    top: 400px;
+    right: 30px;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background-color: #b14285a1;
+    filter: blur(150px);
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .gradientCover1 {
+        width: 20rem;
+        height: 10rem;
+    }
+    .gradientCover2 {
+        display: none;
+    }
+    .gradientCover3 {
+        width: 20rem;
+        height: 20rem;
+    }
+}
