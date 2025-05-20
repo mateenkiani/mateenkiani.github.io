@@ -45,15 +45,18 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="section-padding">
-      <div className="container-custom">
+    <section id="experience" className="section-padding relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/5 via-transparent to-transparent opacity-50"></div>
+      
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
+          <h2 className="section-title gradient-text">Experience</h2>
           
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -63,7 +66,8 @@ const Experience = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-tertiary p-6 rounded-lg"
+                className="bg-tertiary/50 backdrop-blur-sm p-6 rounded-lg border border-secondary/20 
+                         hover:border-secondary/40 transition-all duration-300 card-hover"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
@@ -76,20 +80,25 @@ const Experience = () => {
                   </div>
                 </div>
                 
-                <ul className="list-disc list-inside text-textSecondary mb-4">
+                <ul className="list-disc list-inside text-textSecondary mb-4 space-y-2">
                   {exp.description.map((item, i) => (
-                    <li key={i} className="mb-2">{item}</li>
+                    <li key={i} className="text-base">{item}</li>
                   ))}
                 </ul>
                 
                 <div className="flex flex-wrap gap-2">
                   {exp.skills.map((skill, i) => (
-                    <span
+                    <motion.span
                       key={i}
-                      className="px-3 py-1 bg-primary text-secondary rounded-full text-sm"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.5 + i * 0.05 }}
+                      viewport={{ once: true }}
+                      className="px-3 py-1 bg-primary/50 backdrop-blur-sm text-secondary rounded-full text-sm
+                               border border-secondary/20 hover:border-secondary/40 transition-all duration-300"
                     >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>

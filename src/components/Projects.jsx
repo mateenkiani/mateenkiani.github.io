@@ -30,15 +30,18 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="section-padding bg-tertiary">
-      <div className="container-custom">
+    <section id="projects" className="section-padding bg-tertiary relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/5 via-transparent to-transparent opacity-50"></div>
+      
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
+          <h2 className="section-title gradient-text">Featured Projects</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -48,30 +51,32 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-primary rounded-lg overflow-hidden"
+                className="bg-primary/50 backdrop-blur-sm rounded-lg overflow-hidden border border-secondary/20 
+                         hover:border-secondary/40 transition-all duration-300 card-hover"
               >
-                <div className="relative h-48">
+                <div className="relative h-48 group">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-primary/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                  <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 
+                                transition-opacity duration-300 flex items-center justify-center gap-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-secondary hover:text-white transition-colors"
+                      className="text-secondary hover:text-white transition-colors transform hover:scale-110"
                     >
-                      <FaGithub className="w-6 h-6" />
+                      <FaGithub className="w-8 h-8" />
                     </a>
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-secondary hover:text-white transition-colors"
+                      className="text-secondary hover:text-white transition-colors transform hover:scale-110"
                     >
-                      <FaExternalLinkAlt className="w-6 h-6" />
+                      <FaExternalLinkAlt className="w-8 h-8" />
                     </a>
                   </div>
                 </div>
@@ -80,17 +85,22 @@ const Projects = () => {
                   <h3 className="text-xl font-semibold text-secondary mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-textSecondary mb-4">
+                  <p className="text-textSecondary mb-4 text-base leading-relaxed">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (
-                      <span
+                      <motion.span
                         key={i}
-                        className="px-3 py-1 bg-tertiary text-secondary rounded-full text-sm"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: 0.5 + i * 0.05 }}
+                        viewport={{ once: true }}
+                        className="px-3 py-1 bg-tertiary/50 backdrop-blur-sm text-secondary rounded-full text-sm
+                                 border border-secondary/20 hover:border-secondary/40 transition-all duration-300"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>

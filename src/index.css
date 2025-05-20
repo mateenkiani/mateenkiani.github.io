@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[--color-primary] text-[--color-text-primary];
+    background-image: 
+      radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--color-secondary) 8%, transparent) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--color-secondary) 8%, transparent) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-[--color-secondary] text-[--color-primary] font-semibold rounded-lg 
+           hover:opacity-90 transition duration-300 
+           shadow-lg shadow-[--color-secondary]/20 hover:shadow-[--color-secondary]/30;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[--color-secondary] to-blue-400;
+  }
+
+  .card-hover {
+    @apply transition duration-300 hover:scale-[1.02] hover:shadow-xl;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-12 text-center relative;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[--color-secondary] rounded-full;
+  }
+}

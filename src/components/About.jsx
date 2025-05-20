@@ -15,55 +15,79 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-tertiary">
-      <div className="container-custom">
+    <section id="about" className="section-padding bg-tertiary relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/5 via-transparent to-transparent opacity-50"></div>
+      
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            About Me
-          </h2>
+          <h2 className="section-title gradient-text">About Me</h2>
           
           <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <p className="text-textSecondary mb-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-textSecondary mb-6 text-lg leading-relaxed">
                 I am a passionate Full Stack Developer with more than 3 years of experience in MERN stack 
                 development and 1 year experience in blockchain application development. I have completed 
                 several projects in MERN stack, Nextjs and blockchain, including some NFT marketplaces.
               </p>
-              <p className="text-textSecondary mb-6">
+              <p className="text-textSecondary mb-6 text-lg leading-relaxed">
                 Currently working at Tekrowe as a Full Stack Developer, specializing in healthcare projects 
                 using React, TypeScript, Node.js, and Spring Boot. I collaborate with cross-functional teams 
                 to ensure seamless integration of design, functionality, and user experience.
               </p>
-            </div>
+            </motion.div>
 
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Achievements</h3>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold mb-4 text-secondary">Achievements</h3>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {achievements.map((achievement, index) => (
-                  <div key={index} className="bg-primary p-4 rounded-lg">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-primary/50 backdrop-blur-sm p-4 rounded-lg border border-secondary/20 
+                             hover:border-secondary/40 transition-all duration-300 card-hover"
+                  >
                     <h4 className="text-secondary font-semibold">{achievement.title}</h4>
                     <p className="text-textSecondary text-sm">{achievement.description}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold mb-4">Skills</h3>
+              <h3 className="text-xl font-semibold mb-4 text-secondary">Skills</h3>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
-                  <span 
+                  <motion.span
                     key={index}
-                    className="px-3 py-1 bg-primary text-secondary rounded-full text-sm"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
+                    viewport={{ once: true }}
+                    className="px-3 py-1 bg-primary/50 backdrop-blur-sm text-secondary rounded-full text-sm
+                             border border-secondary/20 hover:border-secondary/40 transition-all duration-300"
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
