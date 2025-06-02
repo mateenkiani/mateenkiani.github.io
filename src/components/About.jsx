@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const About = () => {
   const achievements = [
     { title: "Stack Overflow", description: "Top 4% with 600k+ people reached" },
-    { title: "Fiverr", description: "Level 1 Seller" },
+    { title: "Fiverr", description: "Level 2 Seller" },
     { title: "GitHub", description: "30+ stars on public repositories" },
     { title: "Active Users", description: "300,000+ monthly users on side project" },
   ];

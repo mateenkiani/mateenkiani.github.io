@@ -1,8 +1,31 @@
 @import "tailwindcss";
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+:root {
+  --color-primary: #ffffff; /* Light theme background color */
+  --color-text-primary: #000000; /* Light theme text color */
+  --color-secondary: #ce8dff; /* Light theme secondary color */
+}
+
+[data-theme="dark"] {
+  --color-primary: #121212; /* Dark theme background color */
+  --color-text-primary: #ffffff; /* Dark theme text color */
+  --color-secondary: #1e90ff; /* Dark theme secondary color */
+}
+
+.main {
+  @apply bg-[--color-primary] text-[--color-text-primary];
+
+  background-image: 
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--color-secondary) 60%, transparent) 0%, transparent 70%),
+    radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--color-secondary) 75%, transparent) 0%, transparent 80%),
+    radial-gradient(circle at center, color-mix(in srgb, var(--color-secondary) 40%, transparent) 0%, transparent 90%);
+  
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 
 @layer base {
   html {
@@ -11,9 +34,9 @@
   
   body {
     @apply bg-[--color-primary] text-[--color-text-primary];
-    background-image: 
+    /* background-image: 
       radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--color-secondary) 8%, transparent) 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--color-secondary) 8%, transparent) 0%, transparent 50%);
+      radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--color-secondary) 8%, transparent) 0%, transparent 50%); */
     background-attachment: fixed;
   }
 
@@ -38,7 +61,7 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[--color-secondary] to-blue-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-l from-amber-600 to-violet-400;
   }
 
   .card-hover {
