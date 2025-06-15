@@ -7,25 +7,25 @@ const Contact = () => {
     {
       name: "GitHub",
       icon: FaGithub,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/mateenkiani",
       color: "hover:text-gray-400"
     },
     {
       name: "LinkedIn",
       icon: FaLinkedin,
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://linkedin.com/in/mateenkiani",
       color: "hover:text-blue-400"
     },
     {
       name: "Stack Overflow",
       icon: FaStackOverflow,
-      url: "https://stackoverflow.com/users/yourusername",
+      url: "https://stackoverflow.com/users/9677399/mateen-kiani?tab=profile",
       color: "hover:text-orange-400"
     },
     {
       name: "Fiverr",
       icon: SiFiverr,
-      url: "https://www.fiverr.com/s/VYZdg1x",
+      url: "https://www.fiverr.com/s/7Y6W9a4",
       color: "hover:text-green-400"
     }
   ];
